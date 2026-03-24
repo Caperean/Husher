@@ -1,0 +1,13 @@
+/Moofnish
+--/build 
+--/src
+--/include
+--/ui
+--/tests
+--/resources
+------/icons
+------/images
+------/styles
+resource.qrc
+--CMakeLists.txt
+ 

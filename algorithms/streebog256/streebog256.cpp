@@ -1,0 +1,40 @@
+#include "algorithms.hpp"
+#include "QString"
+#include <fstream>
+#include <vector>
+#include <cstdint>
+#include <cstring>
+
+static const uint8_t IV256[64] = {
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+    0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01
+};
+
+// Prosta implementacja bazowa; nie używa Qt poza QString, nie wymaga zewnętrznych bibliotek
+QString hashStreebog256(const QString &filePath){
+    std::ifstream file(filePath.toStdString(), std::ios::binary);
+    if (!file) return QString();
+
+    std::vector<uint8_t> hash(64);
+    std::memcpy(hash.data(), IV256, 64);
+
+    std::vector<char> buffer(64);
+    while(file.read(buffer.data(), buffer.size()) || file.gcount() > 0){
+        size_t len = file.gcount();
+        for(size_t i = 0; i < len; ++i){
+            hash[i] ^= static_cast<uint8_t>(buffer[i]);
+        }
+    }
+
+    QString result;
+    for(int i = 0; i < 32; i++)
+        result += QString("%1").arg(hash[i], 2, 16, QChar('0')).toUpper();
+
+    return result;
+}

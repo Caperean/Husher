@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles/darkstyle.qss</file>
+        <file>images/confirm.png</file>
+        <file>images/rejected.png</file>
+        <file>images/waiting.png</file>
+        <file>images/notFound.png</file>
+    </qresource>
+</RCC>
