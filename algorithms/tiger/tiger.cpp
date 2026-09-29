@@ -23,7 +23,7 @@ QString hashTiger(const QString &filePath) {
     CryptoPP::byte digest[CryptoPP::Tiger::DIGESTSIZE];
     tiger.Final(digest);
 
-    // Konwersja do hex
+    
     std::string hexOutput;
     CryptoPP::HexEncoder encoder(new CryptoPP::StringSink(hexOutput), false); // false = brak spacji
     encoder.Put(digest, sizeof(digest));

@@ -3,7 +3,7 @@
 #include <fstream>
 #include <QDebug>
 #include <vector>
-#include "xxhash.h" // oficjalna biblioteka
+#include "xxhash/xxhash.h" 
 
 QString hashXxHash64(const QString &filePath) {
     std::ifstream file(filePath.toStdString(), std::ios::binary);

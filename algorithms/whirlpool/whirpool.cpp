@@ -21,7 +21,7 @@ QString hashWhirlpool(const QString &filePath) {
     CryptoPP::byte digest[CryptoPP::Whirlpool::DIGESTSIZE];
     whirlpool.Final(digest);
 
-    // Konwersja do heksadecymalnego QString
+   
     std::string hexOutput;
     CryptoPP::HexEncoder encoder(new CryptoPP::StringSink(hexOutput), false);
     encoder.Put(digest, sizeof(digest));

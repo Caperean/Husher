@@ -5,7 +5,7 @@
 #include <cstdint>
 #include <cstring>
 #include <QDebug>
-// Minimalna implementacja SHA-1 oparta na publicznej wersji RFC 3174
+
 
 struct SHA1_CTX {
     uint32_t state[5];
