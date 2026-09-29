@@ -1,35 +1,28 @@
 #include "algorithms.hpp"
 #include "QString"
 #include <fstream>
+#include <QDebug>
 #include <vector>
-#include <cstdint>
-#include <cstring>
+#include "xxhash.h" // oficjalna biblioteka
 
-// Prosta, self-contained wersja bazowa xxHash64
-QString hashXxHash64(const QString &filePath){
+QString hashXxHash64(const QString &filePath) {
     std::ifstream file(filePath.toStdString(), std::ios::binary);
-    if(!file) return QString();
+    if (!file) return QString();
 
-    uint64_t seed = 0xDEADBEEFDEADBEEFULL;
-    uint64_t h64 = seed;
+    XXH64_state_t* state = XXH64_createState();
+    XXH64_reset(state, 0); // seed 0
 
-    std::vector<char> buffer(64);
-    while(file.read(buffer.data(), buffer.size()) || file.gcount() > 0){
-        size_t len = file.gcount();
-        for(size_t i=0;i<len;i++){
-            h64 += static_cast<uint64_t>(buffer[i]);
-            h64 ^= (h64 >> 33);
-            h64 *= 0xff51afd7ed558ccdULL;
-            h64 ^= (h64 >> 33);
-            h64 *= 0xc4ceb9fe1a85ec53ULL;
-            h64 ^= (h64 >> 33);
-        }
+    std::vector<char> buffer(4096);
+    while (file.read(buffer.data(), buffer.size()) || file.gcount() > 0) {
+        XXH64_update(state, buffer.data(), file.gcount());
     }
+
+    uint64_t digest = XXH64_digest(state);
+    XXH64_freeState(state);
 
     QString result;
-    for(int i=0;i<8;i++){
-        result += QString("%1").arg((h64 >> (56-8*i)) & 0xFF, 2, 16, QChar('0')).toUpper();
-    }
+    for (int i = 0; i < 8; ++i)
+        result += QString("%1").arg((digest >> (56 - 8*i)) & 0xFF, 2, 16, QChar('0')).toUpper();
 
     return result;
 }

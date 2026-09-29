@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <cstring>
 
+
 // ==================== FIX dla MinGW ====================
 #if defined(__GNUC__)
 typedef unsigned __int128 uint128_t;

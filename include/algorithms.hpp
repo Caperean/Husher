@@ -10,7 +10,6 @@ QString hashBLAKE2s(const QString &filePath);
 QString hashBLAKE3(const QString &filePath);
 QString hashCRC32(const QString &filePath);
 QString hashCRC64(const QString &filePath);
-QString hashGOST(const QString &filePath);
 QString hashKeccak256(const QString &filePath);
 QString hashKeccak512(const QString &filePath);
 QString hashMD5(const QString &filePath);

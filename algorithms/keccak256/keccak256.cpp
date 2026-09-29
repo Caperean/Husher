@@ -2,6 +2,7 @@
 #include "QString"
 #include <fstream>
 #include <vector>
+#include <QDebug>
 #include <cstdint>
 #include <cstring>
 

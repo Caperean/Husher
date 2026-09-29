@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Husher LANGUAGES C CXX)
 
-
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
@@ -15,14 +14,12 @@ set_property(SOURCE ${UI_FILES} PROPERTY SKIP_AUTOUIC OFF)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mavx2 -msse4.1 -msse2")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mavx2 -msse4.1 -msse2")
 
-
 find_package(Qt6 REQUIRED COMPONENTS Widgets Gui Core Concurrent)
 
-# Zbieranie plików źródłowych i nagłówków
 file(GLOB_RECURSE SRC_FILES
     src/*.cpp
     algorithms/*.cpp
-    algorithms/*.c #jednorazowo potrzebny
+    algorithms/*.c
 )
 
 file(GLOB_RECURSE HEADER_FILES
@@ -31,6 +28,15 @@ file(GLOB_RECURSE HEADER_FILES
 
 file(GLOB_RECURSE UI_FILES
     ui/*.ui
+)
+
+# 🔥 Crypto++ (statyczna biblioteka)
+add_library(cryptopp STATIC IMPORTED)
+
+set_target_properties(cryptopp PROPERTIES
+    IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/external/cryptopp/libcryptopp.a"
+   INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/external"
+
 )
 
 # Główna aplikacja
@@ -49,17 +55,21 @@ add_definitions(
     -DBLAKE3_NO_NEON
 )
 
-
-# Ikona EXE na Windows
 if(WIN32)
     target_sources(Husher PRIVATE resources/app.rc)
 endif()
 
-# Include
 target_include_directories(Husher PRIVATE
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/ui
+     ${CMAKE_SOURCE_DIR}/external  
 )
 
-# Linkowanie Qt
-target_link_libraries(Husher PRIVATE Qt::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent)
+# Linkowanie Qt + Crypto++
+target_link_libraries(Husher PRIVATE
+    Qt::Widgets
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Concurrent
+    cryptopp
+)

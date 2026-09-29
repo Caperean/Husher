@@ -4,13 +4,15 @@
 #include <vector>
 #include <cstdint>
 #include <cstring>
-
+#include <QDebug>
+// Minimalna implementacja SHA-224 oparta na SHA-256
 struct SHA256_CTX {
     uint32_t state[8];
     uint64_t count;
     uint8_t buffer[64];
 };
 
+// Stałe SHA-256
 static const uint32_t K[64] = {
     0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
     0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
@@ -22,6 +24,7 @@ static const uint32_t K[64] = {
     0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2
 };
 
+// Makra pomocnicze SHA-256
 #define ROTR(x,n) (((x)>>(n))|((x)<<(32-(n))))
 #define CH(x,y,z) (((x)&(y))^((~(x))&(z)))
 #define MAJ(x,y,z) (((x)&(y))^((x)&(z))^((y)&(z)))
@@ -30,60 +33,97 @@ static const uint32_t K[64] = {
 #define SSIG0(x) (ROTR(x,7)^ROTR(x,18)^((x)>>3))
 #define SSIG1(x) (ROTR(x,17)^ROTR(x,19)^((x)>>10))
 
+// Transformacja jednego bloku 64-bajtowego
 static void sha256_transform(uint32_t state[8], const uint8_t block[64]){
     uint32_t w[64],a,b,c,d,e,f,g,h,t1,t2;
-    for(int i=0;i<16;i++) w[i]=(block[i*4]<<24)|(block[i*4+1]<<16)|(block[i*4+2]<<8)|block[i*4+3];
-    for(int i=16;i<64;i++) w[i]=SSIG1(w[i-2])+w[i-7]+SSIG0(w[i-15])+w[i-16];
-    a=state[0]; b=state[1]; c=state[2]; d=state[3]; e=state[4]; f=state[5]; g=state[6]; h=state[7];
+    for(int i=0;i<16;i++)
+        w[i]=(block[i*4]<<24)|(block[i*4+1]<<16)|(block[i*4+2]<<8)|block[i*4+3];
+    for(int i=16;i<64;i++)
+        w[i]=SSIG1(w[i-2])+w[i-7]+SSIG0(w[i-15])+w[i-16];
+
+    a=state[0]; b=state[1]; c=state[2]; d=state[3];
+    e=state[4]; f=state[5]; g=state[6]; h=state[7];
+
     for(int i=0;i<64;i++){
         t1=h+BSIG1(e)+CH(e,f,g)+K[i]+w[i];
         t2=BSIG0(a)+MAJ(a,b,c);
         h=g; g=f; f=e; e=d+t1; d=c; c=b; b=a; a=t1+t2;
     }
-    state[0]+=a; state[1]+=b; state[2]+=c; state[3]+=d; state[4]+=e; state[5]+=f; state[6]+=g; state[7]+=h;
+
+    state[0]+=a; state[1]+=b; state[2]+=c; state[3]+=d;
+    state[4]+=e; state[5]+=f; state[6]+=g; state[7]+=h;
 }
 
+// Inicjalizacja kontekstu SHA-224 (lub SHA-256)
 static void sha256_init(SHA256_CTX *ctx, bool sha224=false){
     ctx->count=0;
-    if(sha224){ctx->state[0]=0xc1059ed8;ctx->state[1]=0x367cd507;ctx->state[2]=0x3070dd17;
-        ctx->state[3]=0xf70e5939;ctx->state[4]=0xffc00b31;ctx->state[5]=0x68581511;ctx->state[6]=0x64f98fa7;
-        ctx->state[7]=0xbefa4fa4;}
-    else{ctx->state[0]=0x6a09e667;ctx->state[1]=0xbb67ae85;ctx->state[2]=0x3c6ef372;ctx->state[3]=0xa54ff53a;
-        ctx->state[4]=0x510e527f;ctx->state[5]=0x9b05688c;ctx->state[6]=0x1f83d9ab;ctx->state[7]=0x5be0cd19;}
+    if(sha224){
+        ctx->state[0]=0xc1059ed8; ctx->state[1]=0x367cd507;
+        ctx->state[2]=0x3070dd17; ctx->state[3]=0xf70e5939;
+        ctx->state[4]=0xffc00b31; ctx->state[5]=0x68581511;
+        ctx->state[6]=0x64f98fa7; ctx->state[7]=0xbefa4fa4;
+    } else {
+        ctx->state[0]=0x6a09e667; ctx->state[1]=0xbb67ae85;
+        ctx->state[2]=0x3c6ef372; ctx->state[3]=0xa54ff53a;
+        ctx->state[4]=0x510e527f; ctx->state[5]=0x9b05688c;
+        ctx->state[6]=0x1f83d9ab; ctx->state[7]=0x5be0cd19;
+    }
 }
 
+// Aktualizacja hasha o nowy fragment danych
 static void sha256_update(SHA256_CTX *ctx,const uint8_t *data,size_t len){
     size_t index=(ctx->count/8)%64;
     ctx->count+=len*8;
     size_t partlen=64-index;
     size_t i=0;
-    if(len>=partlen){memcpy(&ctx->buffer[index],data,partlen);sha256_transform(ctx->state,ctx->buffer);
-        for(i=partlen;i+63<len;i+=64) sha256_transform(ctx->state,&data[i]);index=0;}
+    if(len>=partlen){
+        memcpy(&ctx->buffer[index],data,partlen);
+        sha256_transform(ctx->state,ctx->buffer);
+        for(i=partlen;i+63<len;i+=64) sha256_transform(ctx->state,&data[i]);
+        index=0;
+    }
     memcpy(&ctx->buffer[index],&data[i],len-i);
 }
 
+// Finalizacja i wygenerowanie 28-bajtowego digestu SHA-224
 static void sha256_final(SHA256_CTX *ctx,uint8_t digest[32]){
-    uint8_t bits[8]; for(int i=0;i<8;i++) bits[i]=(ctx->count>>(56-8*i))&0xFF;
+    uint8_t bits[8]; 
+    for(int i=0;i<8;i++) bits[i]=(ctx->count>>(56-8*i))&0xFF;
+
     size_t index=(ctx->count/8)%64;
     size_t padlen=(index<56)?(56-index):(120-index);
     static uint8_t PADDING[64]={0x80};
     sha256_update(ctx,PADDING,padlen);
     sha256_update(ctx,bits,8);
-    for(int i=0;i<8;i++){digest[i*4]=ctx->state[i]>>24;digest[i*4+1]=(ctx->state[i]>>16)&0xFF;
-        digest[i*4+2]=(ctx->state[i]>>8)&0xFF;digest[i*4+3]=ctx->state[i]&0xFF;}
+
+    for(int i=0;i<8;i++){
+        digest[i*4]     = ctx->state[i]>>24;
+        digest[i*4+1]   = (ctx->state[i]>>16)&0xFF;
+        digest[i*4+2]   = (ctx->state[i]>>8)&0xFF;
+        digest[i*4+3]   = ctx->state[i]&0xFF;
+    }
 }
 
+// Funkcja zewnętrzna do wczytania pliku i zwrócenia SHA-224 w HEX
 QString hashSHA224(const QString &filePath){
     std::ifstream file(filePath.toStdString(),std::ios::binary);
     if(!file) return QString();
 
-    SHA256_CTX ctx; sha256_init(&ctx,true);
-    std::vector<char> buffer(4096);
-    while(file){file.read(buffer.data(),buffer.size());sha256_update(&ctx,(uint8_t*)buffer.data(),file.gcount());}
+    SHA256_CTX ctx; 
+    sha256_init(&ctx,true); // true = SHA-224
 
-    uint8_t digest[32]; sha256_final(&ctx,digest);
+    std::vector<char> buffer(4096);
+    while(file){
+        file.read(buffer.data(),buffer.size());
+        sha256_update(&ctx,(uint8_t*)buffer.data(),file.gcount());
+    }
+
+    uint8_t digest[32]; 
+    sha256_final(&ctx,digest);
 
     QString result;
-    for(int i=0;i<28;i++) result+=QString("%1").arg(digest[i],2,16,QChar('0')).toUpper();
+    for(int i=0;i<28;i++) // SHA-224 = 28 bajtów
+        result += QString("%1").arg(digest[i],2,16,QChar('0')).toUpper();
+
     return result;
 }

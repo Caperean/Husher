@@ -3,6 +3,8 @@
 #include <fstream>
 #include <vector>
 #include <cstdint>
+#include <QDebug>
+
 
 static const uint32_t crc_table[256] = {
     0x00000000L, 0x77073096L, 0xEE0E612CL, 0x990951BAL, 0x076DC419L,

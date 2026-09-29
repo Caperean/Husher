@@ -858,70 +858,152 @@ Husher_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-	C:/Users/jakub/Desktop/hash_comparer/CMakeLists.txt \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/adler32/adler32.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/blake2b/blake2b.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/blake2s/blake2s.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/blake3/blake3.c \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/blake3/blake3.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/blake3/blake3.h \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/blake3/blake3_dispatch.c \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/blake3/blake3_portable.c \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/crc32/crc32.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/crc64/crc64.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/gost/gost.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/keccak256/keccak256.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/keccak512/keccak512.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/md5/md5.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/ripemd160/ripemd160.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha1/sha1.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha224/sha224.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha256/sha256.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha384/sha384.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha3_224/sha3_224.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha3_256/sha3_256.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha3_384/sha3_384.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha3_512/sha3_512.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha512/safe512.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha512_224/sha512_224.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/sha512_256/sha512_256.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/streebog256/streebog256.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/streebog512/streebog512.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/tiger/tiger.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/whirlpool/whirpool.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/xxhash3/xxhash3.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/xxhash32/xxhash32.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/algorithms/xxhash64/xxhash64.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/4.2.1/CMakeCCompiler.cmake \
-	C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/4.2.1/CMakeCXXCompiler.cmake \
-	C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/4.2.1/CMakeRCCompiler.cmake \
-	C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/4.2.1/CMakeSystem.cmake \
-	C:/Users/jakub/Desktop/hash_comparer/build/Husher_autogen/moc_predefs.h \
-	C:/Users/jakub/Desktop/hash_comparer/include/mainwindow.h \
-	C:/Users/jakub/Desktop/hash_comparer/resources/resources.qrc \
-	C:/Users/jakub/Desktop/hash_comparer/src/main.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/src/mainwindow.cpp \
-	C:/Users/jakub/Desktop/hash_comparer/src/mainwindow_utils.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/CMakeLists.txt \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/adler32/adler32.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake2b/blake2b.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake2s/blake2s.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake3/blake3.c \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake3/blake3.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake3/blake3.h \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake3/blake3_dispatch.c \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake3/blake3_portable.c \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/crc32/crc32.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/crc64/crc64.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/keccak256/keccak256.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/keccak512/keccak512.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/md5/md5.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/ripemd160/ripemd160.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha1/sha1.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha224/sha224.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha256/sha256.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha384/sha384.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha3_224/sha3_224.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha3_256/sha3_256.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha3_384/sha3_384.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha3_512/sha3_512.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha512/safe512.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha512_224/sha512_224.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/sha512_256/sha512_256.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/streebog/gost341112.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/streebog/gost341112.h \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/streebog/streebog256.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/streebog/streebog512.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/tiger/tiger.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/whirlpool/whirpool.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/xxhash3/xxhash3.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/xxhash32/xxhash32.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/xxhash64/xxhash64.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/4.2.1/CMakeCCompiler.cmake \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/4.2.1/CMakeCXXCompiler.cmake \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/4.2.1/CMakeRCCompiler.cmake \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/4.2.1/CMakeSystem.cmake \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/Husher_autogen/moc_predefs.h \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/include/mainwindow.h \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/resources/resources.qrc \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/src/main.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/src/mainwindow.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/src/mainwindow_utils.cpp \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeCCompiler.cmake.in \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeCCompilerABI.c \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeCInformation.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeCXXCompiler.cmake.in \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeCXXCompilerABI.cpp \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeCompilerIdDetection.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineCCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineCompilerABI.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineCompilerId.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineRCCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineSystem.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeFindBinUtils.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeNinjaFindMake.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeRCCompiler.cmake.in \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeSystem.cmake.in \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeTestCCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeTestCXXCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeTestCompilerCommon.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/CMakeTestRCCompiler.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CheckCSourceCompiles.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CheckIncludeFile.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-C.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX-CXXImportStd.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/FindThreads.cmake \
@@ -930,15 +1012,20 @@ Husher_autogen/timestamp: \
 	C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeInspectCLinker.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Internal/FeatureTesting.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-C.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-CXX.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-C.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake \
+	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-Determine-CXX.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C-ABI.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-C.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
@@ -948,5 +1035,5 @@ Husher_autogen/timestamp: \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake \
 	C:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake \
-	C:/Users/jakub/Desktop/hash_comparer/ui/mainwindow.ui \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/ui/mainwindow.ui \
 	C:/msys64/ucrt64/bin/cmake.exe

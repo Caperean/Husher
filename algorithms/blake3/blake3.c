@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdint.h>
-
 #include "blake3.h"
 #include "blake3_impl.h"
 

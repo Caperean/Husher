@@ -2,7 +2,11 @@
 #include <QFile>
 #include <QByteArray>
 #include <QDebug>
-
+#include <QFileInfo>
+#include <QString>
+#include <cryptopp/adler32.h>
+#include <cryptopp/filters.h>
+#include <cryptopp/hex.h>
 
 QString hashAdler32(const QString &filePath)
 {
@@ -12,21 +16,23 @@ QString hashAdler32(const QString &filePath)
         return QString();
     }
 
-    const quint32 MOD_ADLER = 65521;
-    quint32 a = 1;
-    quint32 b = 0;
+    CryptoPP::Adler32 adler;
 
-    
     while (!file.atEnd()) {
         QByteArray buffer = file.read(4096);
-        for (char byte : buffer) {
-            a = (a + static_cast<quint8>(byte)) % MOD_ADLER;
-            b = (b + a) % MOD_ADLER;
-        }
+        adler.Update(reinterpret_cast<const CryptoPP::byte*>(buffer.constData()), buffer.size());
     }
 
-    quint32 adler = (b << 16) | a;
+    CryptoPP::byte digest[CryptoPP::Adler32::DIGESTSIZE];
+    adler.Final(digest);
 
-    
-    return QString("%1").arg(adler, 8, 16, QChar('0')).toUpper();
+    // Konwersja wyniku do hex string (duże litery)
+    CryptoPP::HexEncoder encoder(nullptr, false); // false = bez spacji
+    std::string output;
+    encoder.Attach(new CryptoPP::StringSink(output));
+    encoder.Put(digest, sizeof(digest));
+    encoder.MessageEnd();
+
+    return QString::fromStdString(output).toUpper();
 }
+

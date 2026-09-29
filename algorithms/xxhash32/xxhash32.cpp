@@ -2,34 +2,27 @@
 #include "QString"
 #include <fstream>
 #include <vector>
-#include <cstdint>
-#include <cstring>
+#include <QDebug>
+#include "xxhash.h" // oficjalna biblioteka
 
-
-QString hashXxHash32(const QString &filePath){
+QString hashXxHash32(const QString &filePath) {
     std::ifstream file(filePath.toStdString(), std::ios::binary);
-    if(!file) return QString();
+    if (!file) return QString();
 
-    uint32_t seed = 0xDEADBEEF;
-    uint32_t h32 = seed;
+    XXH32_state_t* state = XXH32_createState();
+    XXH32_reset(state, 0); // seed 0
 
-    std::vector<char> buffer(64);
-    while(file.read(buffer.data(), buffer.size()) || file.gcount() > 0){
-        size_t len = file.gcount();
-        for(size_t i=0;i<len;i++){
-            h32 += static_cast<uint8_t>(buffer[i]);
-            h32 ^= (h32 >> 15);
-            h32 *= 0x85ebca6b;
-            h32 ^= (h32 >> 13);
-            h32 *= 0xc2b2ae35;
-            h32 ^= (h32 >> 16);
-        }
+    std::vector<char> buffer(4096);
+    while (file.read(buffer.data(), buffer.size()) || file.gcount() > 0) {
+        XXH32_update(state, buffer.data(), file.gcount());
     }
+
+    uint32_t digest = XXH32_digest(state);
+    XXH32_freeState(state);
 
     QString result;
-    for(int i=0;i<4;i++){
-        result += QString("%1").arg((h32 >> (24-8*i)) & 0xFF, 2, 16, QChar('0')).toUpper();
-    }
+    for (int i = 0; i < 4; ++i)
+        result += QString("%1").arg((digest >> (24 - 8*i)) & 0xFF, 2, 16, QChar('0')).toUpper();
 
     return result;
 }

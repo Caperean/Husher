@@ -1,5 +1,5 @@
-C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/Husher.dir
-C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/edit_cache.dir
-C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/rebuild_cache.dir
-C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/Husher_autogen_timestamp_deps.dir
-C:/Users/jakub/Desktop/hash_comparer/build/CMakeFiles/Husher_autogen.dir
+C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/Husher.dir
+C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/edit_cache.dir
+C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/rebuild_cache.dir
+C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/Husher_autogen_timestamp_deps.dir
+C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/Husher_autogen.dir

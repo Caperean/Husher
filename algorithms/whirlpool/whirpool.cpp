@@ -2,28 +2,30 @@
 #include "QString"
 #include <fstream>
 #include <vector>
-#include <cstdint>
-#include <cstring>
+#include <cryptopp/whirlpool.h>
+#include <cryptopp/hex.h>
+#include <cryptopp/filters.h>
+#include <QDebug>
 
-// Prosta, self-contained implementacja bazowa Whirlpool
-QString hashWhirlpool(const QString &filePath){
+QString hashWhirlpool(const QString &filePath) {
     std::ifstream file(filePath.toStdString(), std::ios::binary);
-    if(!file) return QString();
+    if (!file) return QString();
 
-    std::vector<uint8_t> state(64, 0x00);
+    CryptoPP::Whirlpool whirlpool;
+    std::vector<char> buffer(4096);
 
-    std::vector<char> buffer(64);
-    while(file.read(buffer.data(), buffer.size()) || file.gcount() > 0){
-        size_t len = file.gcount();
-        for(size_t i = 0; i < len; ++i){
-            state[i] ^= static_cast<uint8_t>(buffer[i]);
-        }
+    while (file.read(buffer.data(), buffer.size()) || file.gcount() > 0) {
+        whirlpool.Update(reinterpret_cast<const CryptoPP::byte*>(buffer.data()), file.gcount());
     }
 
-    QString result;
-    for(int i = 0; i < 64; i++){
-        result += QString("%1").arg(state[i], 2, 16, QChar('0')).toUpper();
-    }
+    CryptoPP::byte digest[CryptoPP::Whirlpool::DIGESTSIZE];
+    whirlpool.Final(digest);
 
-    return result;
+    // Konwersja do heksadecymalnego QString
+    std::string hexOutput;
+    CryptoPP::HexEncoder encoder(new CryptoPP::StringSink(hexOutput), false);
+    encoder.Put(digest, sizeof(digest));
+    encoder.MessageEnd();
+
+    return QString::fromStdString(hexOutput).toUpper();
 }

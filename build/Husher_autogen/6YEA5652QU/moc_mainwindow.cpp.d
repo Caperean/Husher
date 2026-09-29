@@ -1,5 +1,5 @@
-C:/Users/jakub/Desktop/hash_comparer/build/Husher_autogen/6YEA5652QU/moc_mainwindow.cpp: C:/Users/jakub/Desktop/hash_comparer/include/mainwindow.h \
-  C:/Users/jakub/Desktop/hash_comparer/build/Husher_autogen/moc_predefs.h \
+C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/Husher_autogen/6YEA5652QU/moc_mainwindow.cpp: C:/Users/jakub/Desktop/Proejkty/hash_comparer/include/mainwindow.h \
+  C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/Husher_autogen/moc_predefs.h \
   C:/Qt/6.10.1/mingw_64/include/QtConcurrent/QtConcurrent \
   C:/Qt/6.10.1/mingw_64/include/QtConcurrent/QtConcurrentDepends \
   C:/Qt/6.10.1/mingw_64/include/QtConcurrent/qtaskbuilder.h \
