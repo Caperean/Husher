@@ -5,5 +5,6 @@
         <file>images/rejected.png</file>
         <file>images/waiting.png</file>
         <file>images/notFound.png</file>
+        <file>images/in_progress.png</file>
     </qresource>
 </RCC>

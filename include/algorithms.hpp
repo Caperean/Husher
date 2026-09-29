@@ -4,10 +4,10 @@
 
 using HashFunction = QString(*)(const QString &inputPath);
 
-QString hashAdler32(const QString &inputPath);
-QString hashBLAKE2b(const QString &inputPath);
-QString hashBLAKE2s(const QString &inputPath);
-QString hashBLAKE3(const QString &inputPath);
+QString hashAdler32(const QString &filePath);
+QString hashBLAKE2b(const QString &filePath);
+QString hashBLAKE2s(const QString &filePath);
+QString hashBLAKE3(const QString &filePath);
 QString hashCRC32(const QString &filePath);
 QString hashCRC64(const QString &filePath);
 QString hashGOST(const QString &filePath);

@@ -4,11 +4,11 @@
 #include <QDebug>
 
 
-QString hashAdler32(const QString &inputPath)
+QString hashAdler32(const QString &filePath)
 {
-    QFile file(inputPath);
+    QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "Cannot open file:" << inputPath;
+        qWarning() << "Cannot open file:" << filePath;
         return QString();
     }
 

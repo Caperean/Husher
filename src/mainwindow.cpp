@@ -1,8 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"   
-#include "utils.hpp"
 #include <QString>
 #include <QFileDialog>
+#include <QAbstractItemView>
+#include <QFutureWatcher>
+#include "algorithms.hpp" 
+#include <QClipboard>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)   
@@ -12,18 +15,40 @@ MainWindow::MainWindow(QWidget *parent)
     ui->hash->setPlaceholderText("Hash to compare");
     ui->path->setPlaceholderText("Path");
 
-    connect(ui->pickBtn, &QPushButton::clicked,
-        this, &MainWindow::on_pickBtn_clicked);
-    connect(ui->compareBtn, &QPushButton::clicked,
-        this, &MainWindow::on_compareBtn_clicked);
+   
 
     ui->info->setReadOnly(true);
 
-    ui->statusView->setFixedSize(128, 128);
-    ui->statusView->setScaledContents(false);
+    ui->statusView->setFixedSize(256, 192);
+    ui->statusView->setAlignment(Qt::AlignCenter);
+    ui->statusView->setScaledContents(true);
     setStatus(Status::Waiting);
 
+    setHashingAlgorithm(ui->hashingSystem);
+    ui->hashingSystem->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+    ui->hashingSystem->view()->setMinimumWidth(190);
+
+    hashWatcher = new QFutureWatcher<QString>(this);
+
+connect(hashWatcher, &QFutureWatcher<QString>::finished, this, [this]() {
+    QString computedHash = hashWatcher->result();
+    QString expectedHash = ui->hash->text().trimmed();
+
+    ui->compareBtn->setEnabled(true);
+
+    if (computedHash.isEmpty()) {
+        ui->info->setText("Failed to compute hash.");
+        setStatus(Status::NotFound);
+        return;
+    }
+    lastComputedHash = computedHash;
+    if (computedHash.compare(expectedHash, Qt::CaseInsensitive) == 0)
+        setStatus(Status::Confirm);
+    else
+        setStatus(Status::Rejected);
     
+});
+
 }
 
 void MainWindow::setStatus(Status status)
@@ -36,7 +61,7 @@ void MainWindow::setStatus(Status status)
 
     case Status::NotFound:
         ui->statusView->setPixmap(QPixmap(":/images/notFound.png"));
-        ui->info->setText("App or file not found.");
+        ui->info->setText("File not found.");
         break;
 
     case Status::Confirm:
@@ -47,6 +72,11 @@ void MainWindow::setStatus(Status status)
     case Status::Rejected:
         ui->statusView->setPixmap(QPixmap(":/images/rejected.png"));
         ui->info->setText("Hash does not match!");
+        break;
+
+    case Status::InProgress:
+        ui->statusView->setPixmap(QPixmap(":/images/in_progress.png"));
+        ui->info->setText("Calculating hash in progress...");
         break;
     }
 }
@@ -85,20 +115,33 @@ bool MainWindow::validateHash(const QString &hash)
 
 void MainWindow::on_pickBtn_clicked()
 {
-    QString dir = QFileDialog::getExistingDirectory(
+    QString file = QFileDialog::getOpenFileName(
         this,
-        tr("Select Directory"),
+        tr("Wybierz plik"),
         QDir::homePath(),
-        QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
+        tr("Wszystkie pliki (*.*)")
     );
 
-    if (!dir.isEmpty()) {
-        ui->path->setText(dir);
+    if (!file.isEmpty()) {
+        ui->path->setText(file);
     }
+}
+void MainWindow::on_copyBtn_clicked()
+{
+    if (lastComputedHash.isEmpty()) {
+        ui->info->setText("No computed hash to copy.");
+        return;
+    }
+
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    clipboard->setText(lastComputedHash);
+
+    ui->info->setText("File hash copied to clipboard.");
 }
 
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
+}//cmake --build . --parallel
+//
