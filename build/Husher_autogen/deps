@@ -869,6 +869,7 @@ Husher_autogen/timestamp: \
 	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/blake3/blake3_portable.c \
 	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/crc32/crc32.cpp \
 	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/crc64/crc64.cpp \
+	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/gost/gost.cpp \
 	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/keccak256/keccak256.cpp \
 	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/keccak512/keccak512.cpp \
 	C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/md5/md5.cpp \

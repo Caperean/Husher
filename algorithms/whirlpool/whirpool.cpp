@@ -2,7 +2,7 @@
 #include "QString"
 #include <fstream>
 #include <vector>
-#include <cryptopp/whirlpool.h>
+#include <cryptopp/whrlpool.h>
 #include <cryptopp/hex.h>
 #include <cryptopp/filters.h>
 #include <QDebug>

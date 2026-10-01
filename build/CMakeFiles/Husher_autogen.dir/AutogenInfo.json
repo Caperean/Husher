@@ -343,6 +343,8 @@
 		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/include",
 		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/ui",
 		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/external",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/external/cryptopp",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/external/xxhash",
 		"C:/Qt/6.10.1/mingw_64/include/QtWidgets",
 		"C:/Qt/6.10.1/mingw_64/include",
 		"C:/Qt/6.10.1/mingw_64/include/QtCore",
@@ -378,7 +380,13 @@
 	],
 	"MOC_PREDEFS_FILE" : "C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/Husher_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
-	"MOC_SKIP" : [],
+	"MOC_SKIP" : 
+	[
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/cryptopp_autogen/include/ui/ui_mainwindow.h",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/cryptopp_autogen/mocs_compilation.cpp",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/xxhash_autogen/include/ui/ui_mainwindow.h",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/xxhash_autogen/mocs_compilation.cpp"
+	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 2,
 	"PARSE_CACHE_FILE" : "C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/CMakeFiles/Husher_autogen.dir/ParseCache.txt",
@@ -431,6 +439,11 @@
 		],
 		[
 			"C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/crc64/crc64.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/jakub/Desktop/Proejkty/hash_comparer/algorithms/gost/gost.cpp",
 			"MU",
 			null
 		],
@@ -567,7 +580,13 @@
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [ "C:/Users/jakub/Desktop/Proejkty/hash_comparer/ui" ],
-	"UIC_SKIP" : [],
+	"UIC_SKIP" : 
+	[
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/cryptopp_autogen/include/ui/ui_mainwindow.h",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/cryptopp_autogen/mocs_compilation.cpp",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/xxhash_autogen/include/ui/ui_mainwindow.h",
+		"C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/xxhash_autogen/mocs_compilation.cpp"
+	],
 	"UIC_UI_FILES" : [],
 	"USE_BETTER_GRAPH" : true,
 	"VERBOSITY" : 0
