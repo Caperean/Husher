@@ -1,7 +1,0 @@
-set(__QT_DEPLOY_TARGET_cryptopp_FILE C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/libcryptopp.a)
-set(__QT_DEPLOY_TARGET_cryptopp_TYPE STATIC_LIBRARY)
-set(__QT_DEPLOY_TARGET_xxhash_FILE C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/libxxhash.a)
-set(__QT_DEPLOY_TARGET_xxhash_TYPE STATIC_LIBRARY)
-set(__QT_DEPLOY_TARGET_Husher_FILE C:/Users/jakub/Desktop/Proejkty/hash_comparer/build/Husher.exe)
-set(__QT_DEPLOY_TARGET_Husher_TYPE EXECUTABLE)
-set(__QT_DEPLOY_TARGET_Husher_RUNTIME_DLLS C:/Qt/6.10.1/mingw_64/bin/Qt6Widgets.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Gui.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Concurrent.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Core.dll)
