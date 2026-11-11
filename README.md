@@ -33,5 +33,5 @@ Husher supports the following hashing algorithms:
 - xxhash3  
 - xxhash32  
 - xxhash64
-## Bindigs
+## Depenencies
 - CrytpoPP
